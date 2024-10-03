@@ -8,12 +8,12 @@ def main(secret: str) -> None:  # draws all the functions together
     idx: int = 0
     turns: int = 6
     while idx < turns:
-        guess: str = input_guess(len(secret))
+        input: str = input_guess(len(secret))
         print(("=== Turn " + str(idx + 1) + "/6 ==="))
         print(
-            emojified(guess, secret)
+            emojified(input, secret)
         )  # returns the result of the guess using emojified function
-        if guess == secret:
+        if input == secret:
             print("You won in " + str(idx + 1) + "/6 turns!")  # when you win
             return
         idx += 1
@@ -27,7 +27,7 @@ def input_guess(secret_word_len: int) -> str:
         "Enter a " + str(secret_word_len) + " character word:"
     )  # prompts for an input
     while len(guess) != secret_word_len:
-        guess: str = input(
+        guess = input(
             "That wasn't " + str(secret_word_len) + " chars! Try again:"
         )  # will continue to ask until it is the correct length
     else:
